@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="asa-dJ-7L9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="asa-dJ-7L9">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -26,7 +27,6 @@
                         <connections>
                             <outlet property="dataSource" destination="atn-64-nvx" id="da2-WJ-fhc"/>
                             <outlet property="delegate" destination="atn-64-nvx" id="1WA-rU-PwW"/>
-                            <outletCollection property="gestureRecognizers" destination="SeU-ic-dpW" appends="YES" id="RRd-5F-AlZ"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="c7L-0y-dur">
@@ -48,7 +48,7 @@
                                 <rect key="frame" x="294" y="7" width="65" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
-                                <state key="normal" title="Edit" backgroundImage="button-add">
+                                <state key="normal" title="Edit list" backgroundImage="button-add">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -57,34 +57,102 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="Xdc-pR-sT8" kind="show" identifier="detailView" id="3wR-Jo-8tB"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O0B-se-NZT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="SeU-ic-dpW">
-                    <connections>
-                        <action selector="dismissKeyboard:" destination="atn-64-nvx" id="EwK-q4-BHn"/>
-                        <outlet property="delegate" destination="atn-64-nvx" id="HOk-S8-mn6"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="849" y="130"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="Hhp-AZ-F7T">
+        <!--Detail View Controller-->
+        <scene sceneID="4iX-4W-Mke">
             <objects>
-                <viewController id="fWp-DC-4WI" sceneMemberID="viewController">
+                <viewController id="Xdc-pR-sT8" customClass="DetailViewController" customModule="ShoppingListApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="HfG-HF-eSK"/>
-                        <viewControllerLayoutGuide type="bottom" id="Yqz-Ih-FYa"/>
+                        <viewControllerLayoutGuide type="top" id="2Vk-Yw-cjj"/>
+                        <viewControllerLayoutGuide type="bottom" id="994-kL-fzD"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="9CF-Jq-ONp">
+                    <view key="view" contentMode="scaleToFill" id="lC4-CV-ZPE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="55U-ef-m6l">
+                                <rect key="frame" x="16" y="72" width="343" height="587"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JjX-fB-kKl">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlw-Pc-lce">
+                                                <rect key="frame" x="0.0" y="0.0" width="45" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0iF-Uc-oBn">
+                                                <rect key="frame" x="53" y="0.0" width="290" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qW4-fR-gNN">
+                                        <rect key="frame" x="0.0" y="38" width="343" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TEd-uq-2J0">
+                                                <rect key="frame" x="0.0" y="0.0" width="45" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Ns-5n-rmU">
+                                                <rect key="frame" x="53" y="0.0" width="290" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W74-ol-ZIT">
+                                        <rect key="frame" x="0.0" y="76" width="343" height="511"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="dlw-Pc-lce" firstAttribute="leading" secondItem="TEd-uq-2J0" secondAttribute="leading" id="0CP-3u-5hY"/>
+                                    <constraint firstItem="0iF-Uc-oBn" firstAttribute="leading" secondItem="3Ns-5n-rmU" secondAttribute="leading" id="sv6-KM-hzF"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="55U-ef-m6l" firstAttribute="top" secondItem="2Vk-Yw-cjj" secondAttribute="bottom" constant="8" id="15D-5N-mVd"/>
+                            <constraint firstItem="55U-ef-m6l" firstAttribute="leading" secondItem="lC4-CV-ZPE" secondAttribute="leadingMargin" id="b6X-Bk-UHq"/>
+                            <constraint firstItem="55U-ef-m6l" firstAttribute="trailing" secondItem="lC4-CV-ZPE" secondAttribute="trailingMargin" id="nj3-Yo-Mnf"/>
+                            <constraint firstItem="994-kL-fzD" firstAttribute="top" secondItem="55U-ef-m6l" secondAttribute="bottom" constant="8" id="zTB-5Y-hQI"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="AkT-Fd-65e" appends="YES" id="FY3-rd-mjh"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="W74-ol-ZIT" id="nRv-pg-9Rp"/>
+                        <outlet property="nameField" destination="0iF-Uc-oBn" id="ZwL-xc-ibI"/>
+                        <outlet property="priceField" destination="3Ns-5n-rmU" id="w29-7d-hCH"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XVP-2f-L7T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Q1-kc-XFg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="AkT-Fd-65e">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="Xdc-pR-sT8" id="ENx-Yv-MrT"/>
+                        <outlet property="delegate" destination="Xdc-pR-sT8" id="XQ6-mj-SoW"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1554" y="132"/>
+            <point key="canvasLocation" x="1669.5999999999999" y="130.88455772113943"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Duy-pt-qD9">

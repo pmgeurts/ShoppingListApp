@@ -18,3 +18,7 @@ struct JSONKeys {
     static let shoppingitem = "ShoppingItems"
 }
 //tableCellNames
+
+struct segueKeys {
+    static let detailView = "detailView"
+}

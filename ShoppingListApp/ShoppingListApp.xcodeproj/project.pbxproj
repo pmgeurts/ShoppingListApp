@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF3577261EDD828E005E5903 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3577251EDD828E005E5903 /* DetailViewController.swift */; };
 		CFDF33DB1ED5E18B00F864CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDF33DA1ED5E18B00F864CE /* AppDelegate.swift */; };
 		CFDF33E01ED5E18B00F864CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFDF33DE1ED5E18B00F864CE /* Main.storyboard */; };
 		CFDF33E21ED5E18B00F864CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFDF33E11ED5E18B00F864CE /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CF3577251EDD828E005E5903 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = ../DetailViewController.swift; sourceTree = "<group>"; };
 		CFDF33D71ED5E18B00F864CE /* ShoppingListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoppingListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFDF33DA1ED5E18B00F864CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFDF33DF1ED5E18B00F864CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				CFDF33EC1ED5E1C800F864CE /* TableViewController.swift */,
+				CF3577251EDD828E005E5903 /* DetailViewController.swift */,
 				CFDF33FA1EDC4A9F00F864CE /* Constants.swift */,
 				CFDF33DA1ED5E18B00F864CE /* AppDelegate.swift */,
 				CFDF33DE1ED5E18B00F864CE /* Main.storyboard */,
@@ -163,6 +166,7 @@
 				CFDF33FD1EDC555000F864CE /* ShoppingItem.swift in Sources */,
 				CFDF33FF1EDC5B8F00F864CE /* ShoppingItemService.swift in Sources */,
 				CFDF33FB1EDC4A9F00F864CE /* Constants.swift in Sources */,
+				CF3577261EDD828E005E5903 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

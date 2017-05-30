@@ -8,37 +8,23 @@
 
 import UIKit
 
-class TableViewController: UITableViewController, UIGestureRecognizerDelegate, UITextFieldDelegate {
-   
 
+
+var currentItem: ShoppingItem?
+
+
+
+class TableViewController: UITableViewController, UITextFieldDelegate {
+    
+    
     var shoppingListItems: [ShoppingItem] = [] {
         didSet {
-            UIView.transition(with: tableView,
-                              duration: 0.35,
-                              options: .transitionCrossDissolve,
-                              animations: { self.tableView.reloadData() })
-            //self.tableView.reloadData()
-
- 
- 
- 
-        }
-    }
-    /*
-    var shoppingListItems: [String] = ["Groente", "Fruit", "Pasta", "Broodje", "Yoghurt"] {
-        didSet {
-            self.tableView.reloadData()
-
-        }
-    }
-    
-    var shoppingItemArray: [ShoppingItem] {
-        didSet {
+            
             self.tableView.reloadData()
             
+            
         }
-    }*/
-    
+    }
     
     
     @IBOutlet weak var textFieldOutlet: UITextField!
@@ -58,42 +44,28 @@ class TableViewController: UITableViewController, UIGestureRecognizerDelegate, U
             priceField.placeholder = "The New Price"
         }
         
-        
         // 3. Grab the value from the text field, and print it when the user clicks OK.
         alert.addAction(UIAlertAction(title: "Add Item", style: .default, handler: { [weak alert] (_) in
             
             if let textField = alert?.textFields?[0].text,
                 let priceField = alert?.textFields?[1].text {
-            
+                
                 // Force unwrapping because we know it exists.
                 // shoppingListItems.append([textField.text, priceField.text])
-                let newItem = ShoppingItem.init(name: textField, price: priceField == "" ? 0 : Int(priceField)!)
+                let newItem = ShoppingItem.init(name: textField, price: priceField, detailDescription: "")
                 
-                self.shoppingListItems.insert(newItem, at: 0) //-=-=-=-=-=-=-=-
                 
-                //*** ANIMATION TEST ***
-                //let indexPath = NSIndexPath(row: 0, section: 0)
-                //tableView.insertRows(at: [indexPath as IndexPath], with: UITableViewRowAnimation.fade)
-                
-                //let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-                // add message to current array
-                //myArray.insert("Horse", atIndex: 0)
-                
-                // insert row in table
-                //let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-                //tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+                self.shoppingListItems.insert(newItem, at: 0)
                 
             }
             
-            
-            //print("Text field: \(textField.text)")
-            //print("Price field: \(priceField.text)")
         }))
         
         // 4. Present the alert.
         
         print(self.present(alert, animated: true, completion: nil))
     }
+    
     
     @IBAction func edit(_ sender: Any) {
         if isEditing {
@@ -104,10 +76,8 @@ class TableViewController: UITableViewController, UIGestureRecognizerDelegate, U
         }
     }
     
-    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-        //specifiek:     textFieldOutlet.resignFirstResponder()
-        view.endEditing(true)
-    }
+
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,6 +91,10 @@ class TableViewController: UITableViewController, UIGestureRecognizerDelegate, U
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -155,6 +129,7 @@ class TableViewController: UITableViewController, UIGestureRecognizerDelegate, U
          }
          */
         
+        //a)
         let cell: ShoppingListTableViewCell = self.tableView.dequeueReusableCell(withIdentifier: tableCellIDs.shoppingListID, for: indexPath) as! ShoppingListTableViewCell
         
         //b)
@@ -175,6 +150,23 @@ class TableViewController: UITableViewController, UIGestureRecognizerDelegate, U
      */
     
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        currentItem = shoppingListItems[indexPath.row]
+        self.performSegue(withIdentifier: segueKeys.detailView, sender: self)
+    }
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == segueKeys.detailView {
+            let detailView = segue.destination as! DetailViewController
+            detailView.theItem = currentItem
+            
+        }
+        
+    }
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
@@ -186,22 +178,6 @@ class TableViewController: UITableViewController, UIGestureRecognizerDelegate, U
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
-    }
-    
-
-    
-    
-    
-    
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        if gestureRecognizer is UITapGestureRecognizer {
-            let location = touch.location(in: tableView)
-            print("Tap in table")
-            
-            return (tableView.indexPathForRow(at: location) == nil)
-        }
-        print("is UITapGestureRecognizer")
-        return true
     }
     
     // Override to support rearranging the table view.

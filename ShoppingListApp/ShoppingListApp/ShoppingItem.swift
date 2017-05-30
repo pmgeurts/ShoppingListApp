@@ -10,9 +10,11 @@ import Foundation
 
 class ShoppingItem: NSObject {
     var name: String
-    var price: Int
-    init(name: String, price: Int = 0) {
+    var price: String
+    var detailDescription: String
+    init(name: String, price: String, detailDescription: String) {
         self.name = name
         self.price = price
+        self.detailDescription = detailDescription
     }
 }
