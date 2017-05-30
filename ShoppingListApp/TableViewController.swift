@@ -9,10 +9,7 @@
 import UIKit
 
 class TableViewController: UITableViewController, UIGestureRecognizerDelegate, UITextFieldDelegate {
-    
-    let defaults = NSUserDefaults.standardUserDefaults()
-    defaults.setObject("Coding Explorer", forKey: "userNameKey")
-    
+   
 
     var shoppingListItems: [ShoppingItem] = [] {
         didSet {
@@ -21,13 +18,7 @@ class TableViewController: UITableViewController, UIGestureRecognizerDelegate, U
                               options: .transitionCrossDissolve,
                               animations: { self.tableView.reloadData() })
             //self.tableView.reloadData()
-         
-            /*
- UIView.transition(with: tableView,
- duration: 0.35,
- options: .transitionCrossDissolve,
- animations: { self.tableView.reloadData() })
- */
+
  
  
  
@@ -37,7 +28,7 @@ class TableViewController: UITableViewController, UIGestureRecognizerDelegate, U
     var shoppingListItems: [String] = ["Groente", "Fruit", "Pasta", "Broodje", "Yoghurt"] {
         didSet {
             self.tableView.reloadData()
-            
+
         }
     }
     
@@ -47,8 +38,6 @@ class TableViewController: UITableViewController, UIGestureRecognizerDelegate, U
             
         }
     }*/
-    
-    
     
     
     
