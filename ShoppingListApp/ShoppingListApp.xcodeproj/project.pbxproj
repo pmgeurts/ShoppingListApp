@@ -1,0 +1,336 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CFDF33DB1ED5E18B00F864CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDF33DA1ED5E18B00F864CE /* AppDelegate.swift */; };
+		CFDF33E01ED5E18B00F864CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFDF33DE1ED5E18B00F864CE /* Main.storyboard */; };
+		CFDF33E21ED5E18B00F864CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFDF33E11ED5E18B00F864CE /* Assets.xcassets */; };
+		CFDF33E51ED5E18B00F864CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFDF33E31ED5E18B00F864CE /* LaunchScreen.storyboard */; };
+		CFDF33ED1ED5E1C800F864CE /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDF33EC1ED5E1C800F864CE /* TableViewController.swift */; };
+		CFDF33F81EDC2EAF00F864CE /* ShoppingListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDF33F61EDC2EAF00F864CE /* ShoppingListTableViewCell.swift */; };
+		CFDF33F91EDC2EAF00F864CE /* ShoppingListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFDF33F71EDC2EAF00F864CE /* ShoppingListTableViewCell.xib */; };
+		CFDF33FB1EDC4A9F00F864CE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDF33FA1EDC4A9F00F864CE /* Constants.swift */; };
+		CFDF33FD1EDC555000F864CE /* ShoppingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDF33FC1EDC555000F864CE /* ShoppingItem.swift */; };
+		CFDF33FF1EDC5B8F00F864CE /* ShoppingItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDF33FE1EDC5B8F00F864CE /* ShoppingItemService.swift */; };
+		CFDF34011EDC775800F864CE /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDF34001EDC775800F864CE /* StringExtensions.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CFDF33D71ED5E18B00F864CE /* ShoppingListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoppingListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFDF33DA1ED5E18B00F864CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CFDF33DF1ED5E18B00F864CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CFDF33E11ED5E18B00F864CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CFDF33E41ED5E18B00F864CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CFDF33E61ED5E18B00F864CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CFDF33EC1ED5E1C800F864CE /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = ../TableViewController.swift; sourceTree = "<group>"; };
+		CFDF33F61EDC2EAF00F864CE /* ShoppingListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShoppingListTableViewCell.swift; path = ../ShoppingListTableViewCell.swift; sourceTree = "<group>"; };
+		CFDF33F71EDC2EAF00F864CE /* ShoppingListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ShoppingListTableViewCell.xib; path = ../ShoppingListTableViewCell.xib; sourceTree = "<group>"; };
+		CFDF33FA1EDC4A9F00F864CE /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CFDF33FC1EDC555000F864CE /* ShoppingItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingItem.swift; sourceTree = "<group>"; };
+		CFDF33FE1EDC5B8F00F864CE /* ShoppingItemService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingItemService.swift; sourceTree = SOURCE_ROOT; };
+		CFDF34001EDC775800F864CE /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CFDF33D41ED5E18B00F864CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CFDF33CE1ED5E18B00F864CE = {
+			isa = PBXGroup;
+			children = (
+				CFDF33D91ED5E18B00F864CE /* ShoppingListApp */,
+				CFDF33D81ED5E18B00F864CE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CFDF33D81ED5E18B00F864CE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CFDF33D71ED5E18B00F864CE /* ShoppingListApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CFDF33D91ED5E18B00F864CE /* ShoppingListApp */ = {
+			isa = PBXGroup;
+			children = (
+				CFDF33EC1ED5E1C800F864CE /* TableViewController.swift */,
+				CFDF33FA1EDC4A9F00F864CE /* Constants.swift */,
+				CFDF33DA1ED5E18B00F864CE /* AppDelegate.swift */,
+				CFDF33DE1ED5E18B00F864CE /* Main.storyboard */,
+				CFDF34001EDC775800F864CE /* StringExtensions.swift */,
+				CFDF33FE1EDC5B8F00F864CE /* ShoppingItemService.swift */,
+				CFDF33FC1EDC555000F864CE /* ShoppingItem.swift */,
+				CFDF33F61EDC2EAF00F864CE /* ShoppingListTableViewCell.swift */,
+				CFDF33F71EDC2EAF00F864CE /* ShoppingListTableViewCell.xib */,
+				CFDF33E11ED5E18B00F864CE /* Assets.xcassets */,
+				CFDF33E31ED5E18B00F864CE /* LaunchScreen.storyboard */,
+				CFDF33E61ED5E18B00F864CE /* Info.plist */,
+			);
+			path = ShoppingListApp;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CFDF33D61ED5E18B00F864CE /* ShoppingListApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFDF33E91ED5E18B00F864CE /* Build configuration list for PBXNativeTarget "ShoppingListApp" */;
+			buildPhases = (
+				CFDF33D31ED5E18B00F864CE /* Sources */,
+				CFDF33D41ED5E18B00F864CE /* Frameworks */,
+				CFDF33D51ED5E18B00F864CE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShoppingListApp;
+			productName = ShoppingListApp;
+			productReference = CFDF33D71ED5E18B00F864CE /* ShoppingListApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CFDF33CF1ED5E18B00F864CE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = PG;
+				TargetAttributes = {
+					CFDF33D61ED5E18B00F864CE = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = GK8G8823P5;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = CFDF33D21ED5E18B00F864CE /* Build configuration list for PBXProject "ShoppingListApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CFDF33CE1ED5E18B00F864CE;
+			productRefGroup = CFDF33D81ED5E18B00F864CE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CFDF33D61ED5E18B00F864CE /* ShoppingListApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CFDF33D51ED5E18B00F864CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFDF33E51ED5E18B00F864CE /* LaunchScreen.storyboard in Resources */,
+				CFDF33F91EDC2EAF00F864CE /* ShoppingListTableViewCell.xib in Resources */,
+				CFDF33E21ED5E18B00F864CE /* Assets.xcassets in Resources */,
+				CFDF33E01ED5E18B00F864CE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CFDF33D31ED5E18B00F864CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFDF33F81EDC2EAF00F864CE /* ShoppingListTableViewCell.swift in Sources */,
+				CFDF33DB1ED5E18B00F864CE /* AppDelegate.swift in Sources */,
+				CFDF33ED1ED5E1C800F864CE /* TableViewController.swift in Sources */,
+				CFDF34011EDC775800F864CE /* StringExtensions.swift in Sources */,
+				CFDF33FD1EDC555000F864CE /* ShoppingItem.swift in Sources */,
+				CFDF33FF1EDC5B8F00F864CE /* ShoppingItemService.swift in Sources */,
+				CFDF33FB1EDC4A9F00F864CE /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CFDF33DE1ED5E18B00F864CE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CFDF33DF1ED5E18B00F864CE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CFDF33E31ED5E18B00F864CE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CFDF33E41ED5E18B00F864CE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CFDF33E71ED5E18B00F864CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CFDF33E81ED5E18B00F864CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CFDF33EA1ED5E18B00F864CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GK8G8823P5;
+				INFOPLIST_FILE = ShoppingListApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = PG.ShoppingListApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		CFDF33EB1ED5E18B00F864CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GK8G8823P5;
+				INFOPLIST_FILE = ShoppingListApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = PG.ShoppingListApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CFDF33D21ED5E18B00F864CE /* Build configuration list for PBXProject "ShoppingListApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFDF33E71ED5E18B00F864CE /* Debug */,
+				CFDF33E81ED5E18B00F864CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFDF33E91ED5E18B00F864CE /* Build configuration list for PBXNativeTarget "ShoppingListApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFDF33EA1ED5E18B00F864CE /* Debug */,
+				CFDF33EB1ED5E18B00F864CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CFDF33CF1ED5E18B00F864CE /* Project object */;
+}
