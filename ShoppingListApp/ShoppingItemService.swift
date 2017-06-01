@@ -7,55 +7,73 @@
 //
 
 import Foundation
+import FirebaseDatabase
+
 
 class ShoppingItemService {
+    public static let sharedInstance = ShoppingItemService()  // Singleton: https://en.wikipedia.org/wiki/Singleton_pattern
     
-    class func getTheDataFromShoppingService() -> [ShoppingItem] {
-        var shoppingItemArray: [ShoppingItem] = []
-        //(1)This line gets the Json Dictionary using our service data class function returning an NSDictionary
-        let JSONDictionary = getData() as NSDictionary
-        
-        //(2)Create an variable arrayOfDictionaries and assign it JSONDictionary
-        //   Use the Key "ShoppingItems" in JSONDictionary
-        //   cast it to an array:    as! NSArray
-        let arrayOfDictionaries = JSONDictionary[JSONKeys.shoppingitem] as! NSArray
-        
-        
-        //(3)Iterate the arrayOfDictionaries
-        
-        for shoppingItemDictionary in arrayOfDictionaries {
-            //(4)Create a variable, assign it the value of shoppingItemDictionary
-            //   Cast this using: shoppingItemDictionary as! NSDictionary
-            let shoppingItem = shoppingItemDictionary as! NSDictionary
-            
-            
-            //(5)Create a variable for name of item
-            //   Assign the variable the value of the key: shoppingItem[“name”] as! String
-            let nameOfItem = shoppingItem[JSONKeys.name] as! String
-            
-            //(6)Create a variable for price of item
-            //   Assign it the value of the key “price”: shoppingItem[“price”] as! Int
-            let priceOfItem = shoppingItem[JSONKeys.price] as! Int
-            
-            //(7)Create a variable shopItem, assign it the instance of ShoppingItem
-            //   var shopItem = ShoppingItem.init… let it autocomplete
-            let currentShopItem = ShoppingItem.init(name: nameOfItem, price: String(priceOfItem), detailDescription: "")
-            
-            //(8)Append shoppingItemArray with the variable shopItem
-            shoppingItemArray.append(currentShopItem)
-        }
-        
-        //(9)This is an array of shoppingItems
-        return shoppingItemArray
+    private init() { // Singleton: https://en.wikipedia.org/wiki/Singleton_pattern
     }
     
-    class func getData() -> NSDictionary {
-        //Here is the escaped string...just imagine this is our data retrieved from a server! Like for real!!!
-        let itemsJSONString = "{\r\n    \"ShoppingItems\": [\r\n        {\r\n        \"name\": \"Coffee\",\r\n        \"price\": 5.50\r\n        },\r\n        {\r\n        \"name\": \"Milk\",\r\n        \"price\": 1\r\n        },\r\n        {\r\n        \"name\": \"Sugar\",\r\n        \"price\": 1.2\r\n        },\r\n        {\r\n        \"name\": \"Lemons\",\r\n        \"price\": 0.5\r\n        },\r\n        {\r\n        \"name\": \"Turnips\",\r\n        \"price\": 0.5\r\n        },\r\n        {\r\n        \"name\": \"Carrots\",\r\n        \"price\": 2\r\n        },\r\n        {\r\n        \"name\": \"Shampoo\",\r\n        \"price\": 5\r\n        },\r\n        {\r\n        \"name\": \"Chicken\",\r\n        \"price\": 1.5\r\n        },\r\n        {\r\n        \"name\": \"Meditation Mat\",\r\n        \"price\": 10\r\n        },\r\n        {\r\n        \"name\": \"Cream\",\r\n        \"price\": 2\r\n        },\r\n        {\r\n        \"name\": \"Frogs Legs\",\r\n        \"price\": 14.5\r\n        },\r\n        {\r\n        \"name\": \"Bitter Ballen\",\r\n        \"price\": 3.5\r\n        },\r\n        {\r\n        \"name\": \"Beard Trimmer\",\r\n        \"price\": 14\r\n        }\r\n    ]\r\n}\r\n"
+    var ref: DatabaseReference!
+    
+    public func getShoppingListData() {
+        ref = Database.database().reference()
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            if let data = snapshot.value as? NSDictionary {
+                print(snapshot.key)
+                
+                // ======== EXPLICIT SWIFT STEPS TO DICTIONARY ========
+                let shoppingtems = data[JSONKeys.shoppingitem] as! NSDictionary
+                //print(data)
+                let shoppingModelsDataArray = ShoppingItems.modelsFromDictionaryOf(dictionaries: shoppingtems)
+                //print(shoppingModelsDataArray)
+                // ======== EXPLICIT SWIFT STEPS ========
+                //let shoppingItemArray = data[JSONKeys.shoppingitem] //print(data)
+                //let shoppingModelsDataArray = ShoppingItems.modelsFromDictionaryArray(array: shoppingItemArray as! NSArray)
+                
+                // ======== HELPER FUNCTIONS FROM JSON4SWIFT ========
+                //                let json4SwiftObject = Json4Swift_Base.init(dictionary: data)
+                //                let shoppingData = [JSONKeys.shoppingitem: json4SwiftObject?.shoppingItems]
+                
+                let shoppingDataDict = [JSONKeys.shoppingitem: shoppingModelsDataArray]
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "gotShoppingListData"), object: self , userInfo: shoppingDataDict)
+                //print(shoppingDataDict)
+                
+            } else {
+                print("Error while retrieving data from Firebase")
+            }
+        })
+    
+        ref.observe(.childAdded, with: { (snapshot) -> Void in
+            print("childAdded")
+        })
         
-        return itemsJSONString.parseJSONString as! NSDictionary
+        ref.observe(.childRemoved, with: { (snapshot) -> Void in
+            print("childRemoved")
+        })
+        
     }
+    
+
+    public func addShopItem(shopItem: ShoppingItems) {
+        //ref.child(<TOP KEY FIREBASE e.g. ShoppingItems>).child(<UNIQUE ID>).setValue(<DICTIONARY>)
+        let t = shopItem.dictionaryRepresentation()
+        ref.child(JSONKeys.shoppingitem).child(shopItem.id).setValue(t)
+    }
+
+    public func removeShopItem(_ shopItem: ShoppingItems) {
+        //ref.child("ShoppingItems").child(shopID).removeValue()
+        //let r = shopItem.dictionaryRepresentation()
+        print(shopItem.id)
+        ref.child(JSONKeys.shoppingitem).child(shopItem.id).removeValue()
+    }
+    
+    
 }
+
+
 
 
 

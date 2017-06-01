@@ -10,15 +10,16 @@ import UIKit
 
 
 
-var currentItem: ShoppingItem?
+var currentItem: ShoppingItems?
 
 
 
 class TableViewController: UITableViewController, UITextFieldDelegate {
     
     
-    var shoppingListItems: [ShoppingItem] = [] {
+    var shoppingListItems: [ShoppingItems] = [] {
         didSet {
+            
             
             self.tableView.reloadData()
             
@@ -40,21 +41,36 @@ class TableViewController: UITableViewController, UITextFieldDelegate {
         }
         
         alert.addTextField { (priceField) in
-            priceField.keyboardType = .numberPad
+            priceField.keyboardType = .decimalPad
             priceField.placeholder = "The New Price"
         }
         
         // 3. Grab the value from the text field, and print it when the user clicks OK.
         alert.addAction(UIAlertAction(title: "Add Item", style: .default, handler: { [weak alert] (_) in
+
+ /*
+ "2.25".doubleValue // 2.25
+ "2,25".doubleValue // 2.25
+ 
+ let price = "2,25"
+ let costString = String(format:"%.2f", price.doubleValue)   // "2.25"
+ */
+           /* print(priceField)
+            priceField = String(priceField.doubleValue)
+            print(priceField)
+            */
+            
+            
             
             if let textField = alert?.textFields?[0].text,
-                let priceField = alert?.textFields?[1].text {
+                let priceField = alert?.textFields?[1].text,
+                let priceDouble = Double(priceField)
+            {
                 
                 // Force unwrapping because we know it exists.
                 // shoppingListItems.append([textField.text, priceField.text])
-                let newItem = ShoppingItem.init(name: textField, price: priceField, detailDescription: "")
-                
-                
+                let newItem = ShoppingItems.init(name: textField, price: priceDouble, description: "")
+                ShoppingItemService.sharedInstance.addShopItem(shopItem: newItem)
                 self.shoppingListItems.insert(newItem, at: 0)
                 
             }
@@ -67,6 +83,7 @@ class TableViewController: UITableViewController, UITextFieldDelegate {
     }
     
     
+    
     @IBAction func edit(_ sender: Any) {
         if isEditing {
             setEditing(false, animated: true)
@@ -76,7 +93,6 @@ class TableViewController: UITableViewController, UITextFieldDelegate {
         }
     }
     
-
     
     
     override func viewDidLoad() {
@@ -84,14 +100,19 @@ class TableViewController: UITableViewController, UITextFieldDelegate {
         
         let nib = UINib(nibName: tableCellIDs.shoppingListID, bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: tableCellIDs.shoppingListID)
-        shoppingListItems = ShoppingItemService.getTheDataFromShoppingService()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        ShoppingItemService.sharedInstance.getShoppingListData()
         
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        NotificationCenter.default.addObserver(self, selector: #selector(TableViewController.notifyObservers), name: NSNotification.Name(rawValue: "gotShoppingListData"), object: nil)
+        
     }
+    
+    func notifyObservers(notification: NSNotification) {
+        var shopItemDict = notification.userInfo as! Dictionary<String, [ShoppingItems]>
+        shoppingListItems = shopItemDict[JSONKeys.shoppingitem]!
+        
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         self.tableView.reloadData()
@@ -120,21 +141,9 @@ class TableViewController: UITableViewController, UITextFieldDelegate {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-        // Configure the cell...
-        /*        cell.textLabel?.text = "Item\(indexPath.row): \(shoppingListItems[indexPath.row])"
-         cell.imageView?.image = #imageLiteral(resourceName: "grocery")
-         
-         return cell
-         }
-         */
         
-        //a)
         let cell: ShoppingListTableViewCell = self.tableView.dequeueReusableCell(withIdentifier: tableCellIDs.shoppingListID, for: indexPath) as! ShoppingListTableViewCell
-        
-        //b)
         let currentShoppingItem = shoppingListItems[indexPath.row]
-        //c)
         cell.setDataForTableCell(shoppingListItem: currentShoppingItem)
         cell.imageView?.image = #imageLiteral(resourceName: "grocery")
         return cell
@@ -173,7 +182,10 @@ class TableViewController: UITableViewController, UITextFieldDelegate {
         
         if editingStyle == .delete {
             // Delete the row from the data source
+            ShoppingItemService.sharedInstance.removeShopItem(shoppingListItems[indexPath.row])
             shoppingListItems.remove(at: indexPath.row)
+            
+            //let newItem = ShoppingItems.init(name: textField, price: priceDouble, description: "")
             
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view

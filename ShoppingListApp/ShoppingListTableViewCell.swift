@@ -10,12 +10,17 @@ import UIKit
 
 class ShoppingListTableViewCell: UITableViewCell {
     
-    
-    func setDataForTableCell(shoppingListItem: ShoppingItem) {
+    func setDataForTableCell(shoppingListItem: ShoppingItems) {
         
         self.titleLable?.text = shoppingListItem.name
         self.shoppingListImageView?.image = UIImage.init(named: "Screen1")
-        self.detailTextView?.text = "€ \(shoppingListItem.price)"
+        //FORMAT .00 with , keyboard in EUROPE
+        self.detailTextView?.text = String(format: "€ %.02f", arguments: [shoppingListItem.price ?? 0])
+        //FORMAT . America , Europe 
+        //self.detailTextView?.text = String(format: "€ %.02f", locale: Locale.current arguments: [shoppingListItem.price ?? 0])
+        
+        //FORMAT .0 
+        //self.detailTextView?.text = String("Price: \(shoppingListItem.price ?? 0)")?.doubleValue
     }
 
     @IBOutlet weak var shoppingListImageView: UIImageView!

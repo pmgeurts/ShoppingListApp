@@ -10,7 +10,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
-    var theItem: ShoppingItem?
+    var theItem: ShoppingItems?
     
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var priceField: UITextField!
@@ -21,9 +21,12 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.nameField.text = theItem?.name
-        self.priceField.text = theItem?.price
-        self.descriptionLabel.text = theItem?.detailDescription
+        nameField.text = theItem?.name
+        if let priceDouble = theItem?.price {
+            priceField.text = "\(priceDouble)"
+        }
+        //priceField.text = theItem?.price
+        descriptionLabel.text = theItem?.description
         
         
         
@@ -44,9 +47,16 @@ class DetailViewController: UIViewController {
         view.endEditing(true) //closes the keyboard
         
         //save the items...
-        theItem?.name = nameField.text!
-        theItem?.price = priceField.text!
-        theItem?.detailDescription = descriptionLabel.text!
+        if let name = nameField.text {
+            theItem?.name = name
+        }
+        
+        if let priceText = priceField.text,
+            let priceDouble = Double(priceText) {
+            theItem?.price = priceDouble
+        }
+        //theItem?.price = priceField.text!
+        theItem?.description = descriptionLabel.text!
         
     }
     
