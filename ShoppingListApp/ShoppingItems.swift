@@ -63,6 +63,9 @@ public class ShoppingItems {
         name = dictionary["name"] as? String
         price = dictionary["price"] as? Double
         description = dictionary["description"] as? String
+        if let id = dictionary["id"] as? String {
+            self.id = id
+        }
     }
     
     
@@ -78,8 +81,21 @@ public class ShoppingItems {
         dictionary.setValue(self.name, forKey: "name")
         dictionary.setValue(self.price, forKey: "price")
         dictionary.setValue(self.description, forKey: "description")
-        
+        dictionary.setValue(self.id, forKey: "id")
         return dictionary
     }
+    
+    func getFreakinId(shoppingItemArray: [ShoppingItems]) -> [ShoppingItems]{
+        
+//        let newArrayOfItem = shoppingItemArray.filter { $0.id != self.id }
+        
+        
+        var newArrayOfItems = shoppingItemArray.filter { (item) -> Bool in
+            return item.id != self.id
+        }
+        
+        return newArrayOfItems
+    }
+
     
 }

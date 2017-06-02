@@ -2,4 +2,198 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TableViewController.swift"
+            timestampString = "518022476.803237"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "notifyObserversAddItem(notification:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ShoppingItemService.swift"
+            timestampString = "518015162.330786"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "getShoppingListData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ShoppingListApp.ShoppingItemService.(getShoppingListData () -&gt; ()).(closure #3)"
+                  moduleName = "ShoppingListApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/PG/Documents/3.%20App%20Academy/ShoppingListApp/ShoppingListApp/ShoppingItemService.swift"
+                  timestampString = "518023994.786909"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "19">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ShoppingListApp.ShoppingItemService.(getShoppingListData () -&gt; ()).(closure #3)"
+                  moduleName = "ShoppingListApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/PG/Documents/3.%20App%20Academy/ShoppingListApp/ShoppingListApp/ShoppingItemService.swift"
+                  timestampString = "518023994.78823"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "490">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ShoppingItems.swift"
+            timestampString = "518023791.417326"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "getFreakinId(shoppingItemArray:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ShoppingItemService.swift"
+            timestampString = "518022564.644979"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "removeShopItem(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ShoppingItems.swift"
+            timestampString = "518022899.59946"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "init(dictionary:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ShoppingListApp.ShoppingItems.init (dictionary : __ObjC.NSDictionary) -&gt; Swift.Optional&lt;ShoppingListApp.ShoppingItems&gt;"
+                  moduleName = "ShoppingListApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/PG/Documents/3.%20App%20Academy/ShoppingListApp/ShoppingListApp/ShoppingItems.swift"
+                  timestampString = "518023791.50988"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "2961">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ShoppingListApp.ShoppingItems.init (dictionary : __ObjC.NSDictionary) -&gt; Swift.Optional&lt;ShoppingListApp.ShoppingItems&gt;"
+                  moduleName = "ShoppingListApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/PG/Documents/3.%20App%20Academy/ShoppingListApp/ShoppingListApp/ShoppingItems.swift"
+                  timestampString = "518023791.511242"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "3875">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TableViewController.swift"
+            timestampString = "518024003.99034"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "notifyObserversRemoveItem(notification:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ShoppingListApp.TableViewController.notifyObserversRemoveItem (notification : __ObjC.NSNotification) -&gt; ()"
+                  moduleName = "ShoppingListApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/PG/Documents/3.%20App%20Academy/ShoppingListApp/ShoppingListApp/TableViewController.swift"
+                  timestampString = "518024003.995266"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "129"
+                  endingLineNumber = "129"
+                  offsetFromSymbolStart = "458">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ShoppingListApp.TableViewController.notifyObserversRemoveItem (notification : __ObjC.NSNotification) -&gt; ()"
+                  moduleName = "ShoppingListApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/PG/Documents/3.%20App%20Academy/ShoppingListApp/ShoppingListApp/TableViewController.swift"
+                  timestampString = "518024003.997562"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "129"
+                  endingLineNumber = "129"
+                  offsetFromSymbolStart = "660">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

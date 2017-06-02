@@ -71,7 +71,7 @@ class TableViewController: UITableViewController, UITextFieldDelegate {
                 // shoppingListItems.append([textField.text, priceField.text])
                 let newItem = ShoppingItems.init(name: textField, price: priceDouble, description: "")
                 ShoppingItemService.sharedInstance.addShopItem(shopItem: newItem)
-                self.shoppingListItems.insert(newItem, at: 0)
+                //self.shoppingListItems.insert(newItem, at: 0)
                 
             }
             
@@ -105,6 +105,10 @@ class TableViewController: UITableViewController, UITextFieldDelegate {
         
         NotificationCenter.default.addObserver(self, selector: #selector(TableViewController.notifyObservers), name: NSNotification.Name(rawValue: "gotShoppingListData"), object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(TableViewController.notifyObserversAddItem), name: NSNotification.Name(rawValue: "addedShoppingListData"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(TableViewController.notifyObserversRemoveItem), name: NSNotification.Name(rawValue: "removedShoppingListData"), object: nil)
+        
     }
     
     func notifyObservers(notification: NSNotification) {
@@ -113,6 +117,26 @@ class TableViewController: UITableViewController, UITextFieldDelegate {
         
     }
     
+    func notifyObserversAddItem(notification: NSNotification) {
+        var shopItemDict = notification.userInfo as! Dictionary<String, ShoppingItems>
+        shoppingListItems.insert(shopItemDict[JSONKeys.shoppingitem]!, at: 0)
+        
+    }
+    
+    func notifyObserversRemoveItem(notification: NSNotification) {
+        var shopItemDict = notification.userInfo as! Dictionary<String, ShoppingItems>
+        var shoppingItem  = shopItemDict[JSONKeys.shoppingitem]
+        self.shoppingListItems = (shoppingItem?.getFreakinId(shoppingItemArray: self.shoppingListItems))!
+        
+    }
+    
+    
+    
+    /*
+     // Delete the row from the data source
+     ShoppingItemService.sharedInstance.removeShopItem(shoppingListItems[indexPath.row])
+     shoppingListItems.remove(at: indexPath.row)
+ */
     
     override func viewWillAppear(_ animated: Bool) {
         self.tableView.reloadData()
@@ -183,7 +207,7 @@ class TableViewController: UITableViewController, UITextFieldDelegate {
         if editingStyle == .delete {
             // Delete the row from the data source
             ShoppingItemService.sharedInstance.removeShopItem(shoppingListItems[indexPath.row])
-            shoppingListItems.remove(at: indexPath.row)
+//            shoppingListItems.remove(at: indexPath.row)
             
             //let newItem = ShoppingItems.init(name: textField, price: priceDouble, description: "")
             
