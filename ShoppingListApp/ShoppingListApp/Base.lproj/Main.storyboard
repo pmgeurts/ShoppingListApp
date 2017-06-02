@@ -78,7 +78,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="55U-ef-m6l">
-                                <rect key="frame" x="16" y="72" width="343" height="587"/>
+                                <rect key="frame" x="16" y="72" width="343" height="543"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JjX-fB-kKl">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
@@ -115,24 +115,49 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W74-ol-ZIT">
-                                        <rect key="frame" x="0.0" y="76" width="343" height="511"/>
+                                        <rect key="frame" x="0.0" y="76" width="343" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="248" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="ePF-LL-bO0">
+                                        <rect key="frame" x="0.0" y="104.5" width="343" height="438.5"/>
+                                    </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="dlw-Pc-lce" firstAttribute="leading" secondItem="TEd-uq-2J0" secondAttribute="leading" id="0CP-3u-5hY"/>
                                     <constraint firstItem="0iF-Uc-oBn" firstAttribute="leading" secondItem="3Ns-5n-rmU" secondAttribute="leading" id="sv6-KM-hzF"/>
                                 </constraints>
                             </stackView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gpg-iJ-jTV">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Jgd-t9-XtF"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem systemItem="camera" id="34l-Hl-1KI">
+                                        <connections>
+                                            <action selector="takePicture:" destination="Xdc-pR-sT8" id="Sqh-u8-bge"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="SZy-Qd-DG3"/>
+                                    <barButtonItem systemItem="trash" id="44e-ir-Wd5">
+                                        <connections>
+                                            <action selector="clearImage:" destination="Xdc-pR-sT8" id="MJc-Up-v9X"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="55U-ef-m6l" firstAttribute="top" secondItem="2Vk-Yw-cjj" secondAttribute="bottom" constant="8" id="15D-5N-mVd"/>
+                            <constraint firstItem="gpg-iJ-jTV" firstAttribute="leading" secondItem="lC4-CV-ZPE" secondAttribute="leading" id="HQW-pr-Q0j"/>
+                            <constraint firstItem="994-kL-fzD" firstAttribute="top" secondItem="gpg-iJ-jTV" secondAttribute="bottom" id="VFk-H9-ePo"/>
                             <constraint firstItem="55U-ef-m6l" firstAttribute="leading" secondItem="lC4-CV-ZPE" secondAttribute="leadingMargin" id="b6X-Bk-UHq"/>
+                            <constraint firstItem="gpg-iJ-jTV" firstAttribute="top" secondItem="55U-ef-m6l" secondAttribute="bottom" constant="8" id="cXh-kk-8ti"/>
+                            <constraint firstAttribute="trailing" secondItem="gpg-iJ-jTV" secondAttribute="trailing" id="f5Z-e9-BMY"/>
                             <constraint firstItem="55U-ef-m6l" firstAttribute="trailing" secondItem="lC4-CV-ZPE" secondAttribute="trailingMargin" id="nj3-Yo-Mnf"/>
-                            <constraint firstItem="994-kL-fzD" firstAttribute="top" secondItem="55U-ef-m6l" secondAttribute="bottom" constant="8" id="zTB-5Y-hQI"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="AkT-Fd-65e" appends="YES" id="FY3-rd-mjh"/>
@@ -140,6 +165,7 @@
                     </view>
                     <connections>
                         <outlet property="descriptionLabel" destination="W74-ol-ZIT" id="nRv-pg-9Rp"/>
+                        <outlet property="imageView" destination="ePF-LL-bO0" id="OX5-ap-Yu6"/>
                         <outlet property="nameField" destination="0iF-Uc-oBn" id="ZwL-xc-ibI"/>
                         <outlet property="priceField" destination="3Ns-5n-rmU" id="w29-7d-hCH"/>
                     </connections>

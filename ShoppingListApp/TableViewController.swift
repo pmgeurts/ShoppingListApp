@@ -16,7 +16,7 @@ var currentItem: ShoppingItems?
 
 class TableViewController: UITableViewController, UITextFieldDelegate {
     
-    
+    var imageStore: ImageStore!
     var shoppingListItems: [ShoppingItems] = [] {
         didSet {
             
@@ -33,7 +33,7 @@ class TableViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func addItem(_ sender: Any ) {
         
         //1. Create the alert controller.
-        let alert = UIAlertController(title: "New Item", message: "Enter the item name and price", preferredStyle: .alert)
+        let alert = UIAlertController(title: "New Item", message: "Enter item name, price and description", preferredStyle: .alert)
         
         //2. Add the text field. You can configure it however you need.
         alert.addTextField { (textField) in
@@ -45,44 +45,31 @@ class TableViewController: UITableViewController, UITextFieldDelegate {
             priceField.placeholder = "The New Price"
         }
         
+        alert.addTextField { (descriptionField) in
+            descriptionField.placeholder = "A New Description"
+        }
+        
         // 3. Grab the value from the text field, and print it when the user clicks OK.
         alert.addAction(UIAlertAction(title: "Add Item", style: .default, handler: { [weak alert] (_) in
-
- /*
- "2.25".doubleValue // 2.25
- "2,25".doubleValue // 2.25
- 
- let price = "2,25"
- let costString = String(format:"%.2f", price.doubleValue)   // "2.25"
- */
-           /* print(priceField)
-            priceField = String(priceField.doubleValue)
-            print(priceField)
-            */
-            
-            
             
             if let textField = alert?.textFields?[0].text,
                 let priceField = alert?.textFields?[1].text,
-                let priceDouble = Double(priceField)
+                let priceDouble = Double(priceField),
+                let descriptionField = alert?.textFields?[2].text
             {
                 
                 // Force unwrapping because we know it exists.
                 // shoppingListItems.append([textField.text, priceField.text])
-                let newItem = ShoppingItems.init(name: textField, price: priceDouble, description: "")
+                let newItem = ShoppingItems.init(name: textField, price: priceDouble, description: descriptionField)
                 ShoppingItemService.sharedInstance.addShopItem(shopItem: newItem)
-                //self.shoppingListItems.insert(newItem, at: 0)
                 
             }
             
         }))
         
         // 4. Present the alert.
-        
         print(self.present(alert, animated: true, completion: nil))
     }
-    
-    
     
     @IBAction func edit(_ sender: Any) {
         if isEditing {
@@ -92,8 +79,6 @@ class TableViewController: UITableViewController, UITextFieldDelegate {
             
         }
     }
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -125,7 +110,7 @@ class TableViewController: UITableViewController, UITextFieldDelegate {
     
     func notifyObserversRemoveItem(notification: NSNotification) {
         var shopItemDict = notification.userInfo as! Dictionary<String, ShoppingItems>
-        var shoppingItem  = shopItemDict[JSONKeys.shoppingitem]
+        let shoppingItem  = shopItemDict[JSONKeys.shoppingitem]
         self.shoppingListItems = (shoppingItem?.getFreakinId(shoppingItemArray: self.shoppingListItems))!
         
     }
@@ -195,7 +180,7 @@ class TableViewController: UITableViewController, UITextFieldDelegate {
         if segue.identifier == segueKeys.detailView {
             let detailView = segue.destination as! DetailViewController
             detailView.theItem = currentItem
-            
+            detailView.imageStore = imageStore
         }
         
     }
@@ -207,6 +192,7 @@ class TableViewController: UITableViewController, UITextFieldDelegate {
         if editingStyle == .delete {
             // Delete the row from the data source
             ShoppingItemService.sharedInstance.removeShopItem(shoppingListItems[indexPath.row])
+            self.imageStore.deleteImage(forKey: (currentItem?.id)!)
 //            shoppingListItems.remove(at: indexPath.row)
             
             //let newItem = ShoppingItems.init(name: textField, price: priceDouble, description: "")

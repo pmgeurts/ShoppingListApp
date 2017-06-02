@@ -90,7 +90,7 @@ public class ShoppingItems {
 //        let newArrayOfItem = shoppingItemArray.filter { $0.id != self.id }
         
         
-        var newArrayOfItems = shoppingItemArray.filter { (item) -> Bool in
+        let newArrayOfItems = shoppingItemArray.filter { (item) -> Bool in
             return item.id != self.id
         }
         

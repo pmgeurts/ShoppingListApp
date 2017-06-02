@@ -15,13 +15,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-  
-    
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
         // Override point for customization after application launch.
+        let imageStore = ImageStore()
+        
+        //Access the TableViewController ans set its image store
+        let navController = window!.rootViewController as! UINavigationController
+        let tableviewController = navController.topViewController as! TableViewController
+        //let itemsController = navController.topViewController as! TableViewController
+        
+        tableviewController.imageStore = imageStore
+        
         FirebaseApp.configure()
-
         return true
     }
 

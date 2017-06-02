@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1EAD6F67F212FD525B2EA1E9 /* Pods_ShoppingListApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7CD860A5FE0527B94EA82A /* Pods_ShoppingListApp.framework */; };
+		CF0D4C531EE17761004FABEF /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0D4C521EE17761004FABEF /* ImageStore.swift */; };
 		CF3577261EDD828E005E5903 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3577251EDD828E005E5903 /* DetailViewController.swift */; };
 		CF35772B1EDEA945005E5903 /* Json4Swift_Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3577291EDEA945005E5903 /* Json4Swift_Base.swift */; };
 		CF35772C1EDEA945005E5903 /* ShoppingItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF35772A1EDEA945005E5903 /* ShoppingItems.swift */; };
@@ -28,22 +29,23 @@
 		1F7CD860A5FE0527B94EA82A /* Pods_ShoppingListApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShoppingListApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B4EB3A3F46BC9E9CE2EF473 /* Pods-ShoppingListApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingListApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShoppingListApp/Pods-ShoppingListApp.debug.xcconfig"; sourceTree = "<group>"; };
 		9D1BF6516A7A0D0639596756 /* Pods-ShoppingListApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingListApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShoppingListApp/Pods-ShoppingListApp.release.xcconfig"; sourceTree = "<group>"; };
-		CF3577251EDD828E005E5903 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = ../DetailViewController.swift; sourceTree = "<group>"; };
+		CF0D4C521EE17761004FABEF /* ImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
+		CF3577251EDD828E005E5903 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		CF3577291EDEA945005E5903 /* Json4Swift_Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Json4Swift_Base.swift; sourceTree = SOURCE_ROOT; };
 		CF35772A1EDEA945005E5903 /* ShoppingItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingItems.swift; sourceTree = SOURCE_ROOT; };
 		CF35772D1EDEB28F005E5903 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		CFDF33D71ED5E18B00F864CE /* ShoppingListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoppingListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CFDF33DA1ED5E18B00F864CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CFDF33DA1ED5E18B00F864CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ShoppingListApp/AppDelegate.swift; sourceTree = "<group>"; };
 		CFDF33DF1ED5E18B00F864CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CFDF33E11ED5E18B00F864CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CFDF33E11ED5E18B00F864CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ShoppingListApp/Assets.xcassets; sourceTree = "<group>"; };
 		CFDF33E41ED5E18B00F864CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		CFDF33E61ED5E18B00F864CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CFDF33EC1ED5E1C800F864CE /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = ../TableViewController.swift; sourceTree = "<group>"; };
-		CFDF33F61EDC2EAF00F864CE /* ShoppingListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShoppingListTableViewCell.swift; path = ../ShoppingListTableViewCell.swift; sourceTree = "<group>"; };
-		CFDF33F71EDC2EAF00F864CE /* ShoppingListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ShoppingListTableViewCell.xib; path = ../ShoppingListTableViewCell.xib; sourceTree = "<group>"; };
-		CFDF33FA1EDC4A9F00F864CE /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CFDF33E61ED5E18B00F864CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ShoppingListApp/Info.plist; sourceTree = "<group>"; };
+		CFDF33EC1ED5E1C800F864CE /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		CFDF33F61EDC2EAF00F864CE /* ShoppingListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingListTableViewCell.swift; sourceTree = "<group>"; };
+		CFDF33F71EDC2EAF00F864CE /* ShoppingListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShoppingListTableViewCell.xib; sourceTree = "<group>"; };
+		CFDF33FA1EDC4A9F00F864CE /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = ShoppingListApp/Constants.swift; sourceTree = "<group>"; };
 		CFDF33FE1EDC5B8F00F864CE /* ShoppingItemService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingItemService.swift; sourceTree = SOURCE_ROOT; };
-		CFDF34001EDC775800F864CE /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		CFDF34001EDC775800F864CE /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringExtensions.swift; path = ShoppingListApp/StringExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,46 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CF846D6A1EE1A7A60002AA00 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CFDF33FE1EDC5B8F00F864CE /* ShoppingItemService.swift */,
+				CF3577251EDD828E005E5903 /* DetailViewController.swift */,
+				CFDF33EC1ED5E1C800F864CE /* TableViewController.swift */,
+				CF35772A1EDEA945005E5903 /* ShoppingItems.swift */,
+				CF0D4C521EE17761004FABEF /* ImageStore.swift */,
+				CFDF33DA1ED5E18B00F864CE /* AppDelegate.swift */,
+			);
+			name = Controller;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		CF846D6B1EE1A7A60002AA00 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CFDF33F61EDC2EAF00F864CE /* ShoppingListTableViewCell.swift */,
+				CFDF33F71EDC2EAF00F864CE /* ShoppingListTableViewCell.xib */,
+				CFDF33DE1ED5E18B00F864CE /* Main.storyboard */,
+				CFDF33E31ED5E18B00F864CE /* LaunchScreen.storyboard */,
+				CFDF33E11ED5E18B00F864CE /* Assets.xcassets */,
+			);
+			name = View;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		CF846D6C1EE1A7A60002AA00 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CFDF33FA1EDC4A9F00F864CE /* Constants.swift */,
+				CFDF34001EDC775800F864CE /* StringExtensions.swift */,
+				CF3577291EDEA945005E5903 /* Json4Swift_Base.swift */,
+				CFDF33E61ED5E18B00F864CE /* Info.plist */,
+				CF35772D1EDEB28F005E5903 /* GoogleService-Info.plist */,
+			);
+			name = Model;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		CFDF33CE1ED5E18B00F864CE = {
 			isa = PBXGroup;
 			children = (
@@ -96,21 +138,9 @@
 		CFDF33D91ED5E18B00F864CE /* ShoppingListApp */ = {
 			isa = PBXGroup;
 			children = (
-				CFDF33EC1ED5E1C800F864CE /* TableViewController.swift */,
-				CF3577251EDD828E005E5903 /* DetailViewController.swift */,
-				CF35772A1EDEA945005E5903 /* ShoppingItems.swift */,
-				CFDF33FE1EDC5B8F00F864CE /* ShoppingItemService.swift */,
-				CFDF33F61EDC2EAF00F864CE /* ShoppingListTableViewCell.swift */,
-				CFDF33FA1EDC4A9F00F864CE /* Constants.swift */,
-				CFDF33DA1ED5E18B00F864CE /* AppDelegate.swift */,
-				CFDF34001EDC775800F864CE /* StringExtensions.swift */,
-				CFDF33DE1ED5E18B00F864CE /* Main.storyboard */,
-				CFDF33F71EDC2EAF00F864CE /* ShoppingListTableViewCell.xib */,
-				CF3577291EDEA945005E5903 /* Json4Swift_Base.swift */,
-				CFDF33E11ED5E18B00F864CE /* Assets.xcassets */,
-				CFDF33E31ED5E18B00F864CE /* LaunchScreen.storyboard */,
-				CFDF33E61ED5E18B00F864CE /* Info.plist */,
-				CF35772D1EDEB28F005E5903 /* GoogleService-Info.plist */,
+				CF846D6A1EE1A7A60002AA00 /* Controller */,
+				CF846D6B1EE1A7A60002AA00 /* View */,
+				CF846D6C1EE1A7A60002AA00 /* Model */,
 			);
 			path = ShoppingListApp;
 			sourceTree = "<group>";
@@ -244,6 +274,7 @@
 				CFDF33F81EDC2EAF00F864CE /* ShoppingListTableViewCell.swift in Sources */,
 				CFDF33DB1ED5E18B00F864CE /* AppDelegate.swift in Sources */,
 				CF35772C1EDEA945005E5903 /* ShoppingItems.swift in Sources */,
+				CF0D4C531EE17761004FABEF /* ImageStore.swift in Sources */,
 				CF35772B1EDEA945005E5903 /* Json4Swift_Base.swift in Sources */,
 				CFDF33ED1ED5E1C800F864CE /* TableViewController.swift in Sources */,
 				CFDF34011EDC775800F864CE /* StringExtensions.swift in Sources */,
@@ -262,6 +293,7 @@
 				CFDF33DF1ED5E18B00F864CE /* Base */,
 			);
 			name = Main.storyboard;
+			path = ShoppingListApp;
 			sourceTree = "<group>";
 		};
 		CFDF33E31ED5E18B00F864CE /* LaunchScreen.storyboard */ = {
@@ -270,6 +302,7 @@
 				CFDF33E41ED5E18B00F864CE /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = ShoppingListApp;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
