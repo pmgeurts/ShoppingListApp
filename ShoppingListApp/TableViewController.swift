@@ -83,8 +83,8 @@ class TableViewController: UITableViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let nib = UINib(nibName: tableCellIDs.shoppingListID, bundle: nil)
-        self.tableView.register(nib, forCellReuseIdentifier: tableCellIDs.shoppingListID)
+        let nib = UINib(nibName: tableCell.shoppingListXibName, bundle: nil)
+        self.tableView.register(nib, forCellReuseIdentifier: tableCell.shoppingListCellID)
         
         ShoppingItemService.sharedInstance.getShoppingListData()
         
@@ -151,7 +151,7 @@ class TableViewController: UITableViewController, UITextFieldDelegate {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell: ShoppingListTableViewCell = self.tableView.dequeueReusableCell(withIdentifier: tableCellIDs.shoppingListID, for: indexPath) as! ShoppingListTableViewCell
+        let cell: ShoppingListTableViewCell = self.tableView.dequeueReusableCell(withIdentifier: tableCell.shoppingListCellID, for: indexPath) as! ShoppingListTableViewCell
         let currentShoppingItem = shoppingListItems[indexPath.row]
         cell.setDataForTableCell(shoppingListItem: currentShoppingItem)
         cell.imageView?.image = #imageLiteral(resourceName: "grocery")

@@ -8,8 +8,10 @@
 
 import Foundation
 
-struct tableCellIDs {
-    static let shoppingListID = "ShoppingListTableViewCell"
+struct tableCell {
+    static let shoppingListCellID = "ShoppingListCellID"
+    static let shoppingListXibName = "ShoppingListTableViewCell"
+
 }
 
 struct JSONKeys {
